@@ -1,0 +1,9 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  .roleUpdate {
+    margin-bottom: 20px;
+  }
+}
