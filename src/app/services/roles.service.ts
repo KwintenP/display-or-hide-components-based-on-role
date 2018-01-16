@@ -16,7 +16,7 @@ export class RolesService {
 
   // We leverage this roleUpdates$ to be able to update the roles
   // This is for demonstration purposes only
-  roleUpdates$ = new BehaviorSubject(['user']);
+  roleUpdates$ = new BehaviorSubject(['basic']);
 
   constructor() {
     this.roleUpdates$

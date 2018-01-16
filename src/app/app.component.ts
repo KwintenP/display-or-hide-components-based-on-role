@@ -10,8 +10,8 @@ import { map } from 'rxjs/operators';
     <div class="roleUpdate">
       <h3>Update the roles the user has</h3>
       <form novalidate [formGroup]="roleForm">
-        <label for="user">User:</label>
-        <input name="user" id="user" type="checkbox" formControlName="user"/>
+        <label for="basic">Basic:</label>
+        <input name="basic" id="basic" type="checkbox" formControlName="basic"/>
         <label for="author">Author:</label>
         <input name="author" id="author" type="checkbox" formControlName="author"/>
         <label for="admin">Admin:</label>
@@ -32,7 +32,12 @@ import { map } from 'rxjs/operators';
 
      This is useful since our appHasRole directive can inject the templateRef this way.
     -->
-    <app-normal-users-can-view *appHasRole="'user'"></app-normal-users-can-view>
+    <!--
+    1. Access to the roles the user has
+    2. A link to the component that might get added to the view
+    3. A container where we can add the component
+    -->
+    <app-normal-users-can-view *appHasRole="'basic'"></app-normal-users-can-view>
     <app-authors-can-view *appHasRole="'author'"></app-authors-can-view>
     <app-only-for-admins *appHasRole="'admin'"></app-only-for-admins>
   `,
@@ -46,7 +51,7 @@ export class AppComponent implements OnInit {
     private rolesService: RolesService
   ) {
     this.roleForm = formBuilder.group({
-      user: true,
+      basic: true,
       author: false,
       admin: false
     });
